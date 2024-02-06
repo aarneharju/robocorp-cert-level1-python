@@ -9,6 +9,7 @@ def robot_spare_bin_python():
     )
     open_the_intranet_website()
     log_in()
+    fill_and_submit_the_sales_form()
 
 def open_the_intranet_website():
     """Navigates to the given URL"""
@@ -21,3 +22,12 @@ def log_in():
     page.fill("#username", "maria")
     page.fill("#password", "thoushallnotpass")
     page.click("button:text('Log in')")
+
+def fill_and_submit_the_sales_form():
+    """Fills in the sales data and clicks the submit button"""
+    page = browser.page()
+    page.fill("#firstname", "John")
+    page.fill("#lastname", "Smith")
+    page.fill("#salesresult", "123")
+    page.select_option("#salestarget", "10000")
+    page.click("text=Submit")
