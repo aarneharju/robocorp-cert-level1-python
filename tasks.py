@@ -1,5 +1,6 @@
 from robocorp.tasks import task
 from robocorp import browser
+from RPA.HTTP import HTTP
 
 @task
 def robot_spare_bin_python():
@@ -9,6 +10,7 @@ def robot_spare_bin_python():
     )
     open_the_intranet_website()
     log_in()
+    download_the_excel_file()
     fill_and_submit_the_sales_form()
 
 def open_the_intranet_website():
@@ -31,3 +33,9 @@ def fill_and_submit_the_sales_form():
     page.fill("#salesresult", "123")
     page.select_option("#salestarget", "10000")
     page.click("text=Submit")
+
+def download_the_excel_file():
+    """Downloads the Excel file from the given URL"""
+    http = HTTP()
+    http.download("https://robotsparebinindustries.com/SalesData.xlsx", overwrite=True)
+    
