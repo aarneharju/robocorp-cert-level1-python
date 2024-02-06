@@ -8,7 +8,16 @@ def robot_spare_bin_python():
         slowmo=1000,
     )
     open_the_intranet_website()
+    log_in()
 
 def open_the_intranet_website():
     """Navigates to the given URL"""
     browser.goto("https://robotsparebinindustries.com/")
+
+def log_in():
+    """Fills in the login form and clicks the 'Log in' button"""
+
+    page = browser.page()
+    page.fill("#username", "maria")
+    page.fill("#password", "thoushallnotpass")
+    page.click("button:text('Log in')")
