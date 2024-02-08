@@ -13,6 +13,7 @@ def robot_spare_bin_python():
     log_in()
     download_the_excel_file()
     fill_form_with_excel_data()
+    collect_results()
 
 def open_the_intranet_website():
     """Navigates to the given URL"""
@@ -49,3 +50,8 @@ def fill_form_with_excel_data():
 
     for row in worksheet:
         fill_and_submit_the_sales_form(row)
+
+def collect_results():
+    """Take screenshot of the page"""
+    page = browser.page()
+    page.screenshot(path="output/sales_summary.png")
